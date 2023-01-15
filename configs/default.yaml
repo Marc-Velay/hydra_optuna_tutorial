@@ -1,0 +1,33 @@
+defaults:
+    - agent: ddpg
+    - environment: pendulum_default
+    - agent/search_spaces@hydra.sweeper.params: ${agent}
+    - _self_
+    - override hydra/sweeper: optuna
+    - override hydra/sweeper/sampler: tpe
+
+hydra:
+    sweeper:
+        sampler:
+            seed: 234
+        direction: maximize
+        study_name: trading_ddpg
+        storage: null
+        n_trials: 20
+        n_jobs: 1
+
+experiment:
+    device: 'cpu'
+    verbose: 1
+    render: False
+    n_eval_episodes: 10
+    max_timesteps: 20000
+    save_freq: 2000
+    eval_freq: 2000
+    optuna_eval_freq: 2000
+    seed: 234
+    optimization_log_path: "outputs/checkpoints"
+    log_folder: "outputs/logs"
+    log_interval: 20
+    n_envs: 8
+

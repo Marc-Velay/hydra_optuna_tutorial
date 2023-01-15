@@ -1,0 +1,24 @@
+env_id: Market-v1
+
+# Length of a trading period, episode ends of max_steps open days
+# After preprocessing, data cut into chunks of (total_days % max_steps) size
+max_steps: 60 
+train: True
+temp_splits_folder: null # Set from arg parser pragmatically
+ep_per_asset_sample: 100
+resample: False
+
+data:
+  asset_list_file: "fin_data/sp500/sp500_tickers.csv"
+  asset_raw_file: "fin_data/sp500/sp500_prices.csv"
+  start_date: "02-01-2010" # DD-MM-YYYY date format
+  end_date: "30-12-2020" # Take into account room for backtesting
+  nb_sampled_assets: 20 # -1 Default value to use ALL assets
+  train_test_split: .8 # Ratio of chunks in training and validation sets
+  representation: "base"
+  repr_args:  {}
+
+portfolio:
+  fees: 2 # % of each transaction deduced from value as trading fees
+  initial_value: 100000
+  reward_fct: "ror"
