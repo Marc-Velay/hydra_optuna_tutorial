@@ -1,0 +1,15 @@
+trained_agent_path: ''
+policy: "MlpPolicy"
+learning_algo: "ppo"
+gamma: 1.
+learning_rate: 1e-4
+n_steps: 60
+batch_size: 32
+n_epochs: 8
+ent_coef: 1e-4
+clip_range: 0.1
+gae_lambda: 0.9
+max_grad_norm: 0.5
+vf_coef: 0.2
+net_arch: "m"
+activation: "relu"

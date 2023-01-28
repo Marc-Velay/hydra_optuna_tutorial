@@ -11,6 +11,4 @@ gradient_steps: 8
 noise_type: "normal"
 noise_std: 0.001
 net_arch: "m"
-features_extractor_arch: "m"
-features_dim: 32
 activation: "relu"
